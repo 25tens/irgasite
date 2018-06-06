@@ -1,0 +1,93 @@
+{% extends 'blog/layout.html' %}
+
+ {% block extra_head %}
+      
+       <style>
+           .productlist .row {
+  margin-right: 0;
+  margin-left: 0;
+}
+@media (max-width: 767px) {
+  .productlist .row {
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+}
+.productlist .col-sm-12,
+.productlist .col-sm-8,
+.productlist .col-sm-6,
+.productlist .col-sm-4 {
+  position: relative;
+  min-height: 1px;
+  padding: 2px;
+}
+@media (max-width: 767px) {
+  .productlist .col-sm-12,
+  .productlist .col-sm-8,
+  .productlist .col-sm-6,
+  .productlist .col-sm-4 {
+    min-height: 1px;
+    padding: 0 15px 15px 15px;
+  }
+}
+           .post_photo { max-width: 300px;
+                         max-height: 300px;
+                        }
+       </style>
+ {% endblock %}
+
+{% block content %} 
+
+
+
+
+{% for post in post_list %}
+    
+
+
+ <!-- <div class="panel panel-default">
+    <div class="panel-heading">
+          {% if post.photo %}
+         <img src="{{ post.photo.url }}" class="post_photo" />
+    {% endif %}   
+         
+     
+     </div>
+        
+    
+    <div class="panel-body">
+      <h4> {{ post.title }} </h4>  
+      </div>
+    <div class="panel-footer"> 
+        <p>{{ post.content|linebreaksbr }}</p>
+        <p>   {{ post.published_date }}</p>
+      </div>
+  </div>-->
+	
+
+<div class="container-fluid productlist">
+<div class="row">
+<div class="col-sm-6">
+     {% if post.photo %}
+         <img src="{{ post.photo.url }}" class="post_photo" />
+    {% endif %}  
+
+</div>
+<div class="col-sm-6">
+       <h4> {{ post.title }} </h4>  
+        <p>{{ post.content|linebreaksbr }}</p>
+        <p>   {{ post.published_date }}</p>
+</div>
+
+</div>
+</div>
+
+
+
+{% endfor %}      
+               
+  {% endblock  %}
+      
+   
+   
+              
